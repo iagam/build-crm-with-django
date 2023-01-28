@@ -31,8 +31,8 @@
                 <span class="ml-auto text-gray-900">Boston</span>
             </div>
             <div class="flex border-t border-b mb-6 border-gray-200 py-2">
-                <span class="text-gray-500">Mobile</span>
-                <span class="ml-auto text-gray-900">0000000000</span>
+                <span class="text-gray-500">Agent</span>
+                <span class="ml-auto text-gray-900">{{ lead.agent }}</span>
             </div>
             <div class="flex">
                 <a href="{% url 'leads:lead-delete' lead.pk %}" class="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded">
@@ -45,14 +45,4 @@
   </div>
 </section>
 
-
-
-    <a href="{% url 'leads:lead-list' %}"> Back to Leads</a>
-    <hr/>
-    <h1>This is the detail for {{ lead.first_name }}</h1>
-    <p> Age : {{ lead.age }} </p>
-    <p> Agent : {{ lead.agent }} </p>
-    <hr/>
-    <a href="{% url 'leads:lead-update' lead.pk %}">Update</a>
-    <a href="{% url 'leads:lead-delete' lead.pk %}">Delete</a>
 {% endblock content %}

@@ -34,14 +34,4 @@
   </div>
 </section>
 
-
-
-    <a href="{% url 'leads:lead-detail' lead.pk %}"> Back to Lead {{ lead.first_name }} {{ lead.last_name }}</a>
-    <hr/>
-    <h1>Update lead: {{ lead.first_name }} {{ lead.last_name }}</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Update</button>
-    </form>
 {% endblock content %}
