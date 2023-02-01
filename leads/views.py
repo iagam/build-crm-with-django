@@ -34,6 +34,12 @@ def lead_list(request):
     return render(request, "leads/lead_list.html", context)
 
 
+class LeadDetailView(DetailView):
+    template_name = "leads/lead_detail.html"
+    queryset = Lead.objects.all()
+    context_object_name = "lead"
+
+
 def lead_detail(request, pk):
     lead = Lead.objects.get(id=pk)
     context = {
