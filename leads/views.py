@@ -23,6 +23,7 @@ def landing_page(request):
 class LeadListView(ListView):
     template_name = "leads/lead_list.html"
     queryset = Lead.objects.all()
+    context_object_name = "leads"
 
 
 def lead_list(request):
