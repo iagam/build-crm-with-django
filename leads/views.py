@@ -70,8 +70,10 @@ def lead_create(request):
 
 
 class LeadUpdateView(UpdateView):
-    template_name = "leads/lead_create.html"
+    template_name = "leads/lead_update.html"
+    queryset = Lead.objects.all()
     form_class = LeadModelForm
+    context_object_name = "lead"
 
     def get_success_url(self):
         return "/leads"
@@ -90,6 +92,15 @@ def lead_update(request, pk):
             form.save()
             return render(request, "leads/lead_detail.html", context)
     return render(request, "leads/lead_update.html", context)
+
+
+class LeadDeleteView(DeleteView):
+    template_name = "leads/lead_delete.html"
+    queryset = Lead.objects.all()
+    context_object_name = "lead"
+
+    def get_success_url(self):
+        return "/leads"
 
 
 def lead_delete(request, pk):
