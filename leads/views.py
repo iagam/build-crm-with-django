@@ -48,6 +48,14 @@ def lead_detail(request, pk):
     return render(request, "leads/lead_detail.html", context)
 
 
+class LeadCreateView(CreateView):
+    template_name = "leads/lead_create.html"
+    form_class = LeadModelForm
+
+    def get_success_url(self):
+        return "/leads"
+
+
 def lead_create(request):
     form = LeadModelForm()
     if request.method == "POST":
